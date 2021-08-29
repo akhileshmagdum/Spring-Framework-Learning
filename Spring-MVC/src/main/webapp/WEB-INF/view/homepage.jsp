@@ -15,5 +15,6 @@
 <h2>Click the link below to enter to register</h2>
 <hr>
 <a href= "showform">Registration</a>
+<a href= "student/showform">Student Reg</a>
 </body>
 </html>
