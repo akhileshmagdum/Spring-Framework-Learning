@@ -1,5 +1,7 @@
 package com.akhilesh;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class Student {
@@ -8,8 +10,10 @@ public class Student {
     private int age;
     private String state;
     private String prgLang;
+    private String hobby;
     private HashMap<String,String> stateList;
-    public HashMap<String,String> prgLangList;
+    public ArrayList<String> prgLangList;
+    public ArrayList<String> hobbiesList;
 
     public Student(){
         stateList = new HashMap<>();
@@ -20,15 +24,32 @@ public class Student {
         stateList.put("Gujarat","GJ");
         stateList.put("Goa","GA");
 
-        prgLangList = new HashMap<>();
-        prgLangList.put("Java","Java");
+        prgLangList = new ArrayList<>(Arrays.asList("Java","Python","C++","C","Javascript"));
+
+        hobbiesList = new ArrayList<>(Arrays.asList("Cycling","Boating","Sleeping","Watching Movies","Gaming"));
     }
 
-    public HashMap<String, String> getPrgLangList() {
+    public String getHobby() {
+        return hobby;
+    }
+
+    public void setHobbiesList(ArrayList<String> hobbiesList) {
+        this.hobbiesList = hobbiesList;
+    }
+
+    public void setHobby(String hobby) {
+        this.hobby = hobby;
+    }
+
+    public ArrayList<String> getHobbiesList() {
+        return hobbiesList;
+    }
+
+    public ArrayList<String> getPrgLangList() {
         return prgLangList;
     }
 
-    public void setPrgLangList(HashMap<String, String> prgLangList) {
+    public void setPrgLangList(ArrayList<String> prgLangList) {
         this.prgLangList = prgLangList;
     }
 

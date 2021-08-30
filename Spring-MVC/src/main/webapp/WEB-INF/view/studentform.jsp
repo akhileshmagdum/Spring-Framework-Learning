@@ -23,8 +23,13 @@
     <form:options items="${student.stateList}"/>
     </form:select>
     <br><br>
+    Programming Language:
     <form:radiobuttons path="prgLang" items="${student.prgLangList}"/>
     <br><br>
+    Hobbies:
+    <form:checkboxes path="hobby" items="${student.hobbiesList}"/>
+    <br><br>
+
     <input type="submit" value="submit"/>
 </form:form>
 </body>
