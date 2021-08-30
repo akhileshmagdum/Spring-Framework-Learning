@@ -10,6 +10,8 @@
 <head>
     <title>Student Processing Form</title>
     Student ${student.firstName} ${student.lastName} of age ${student.age} confirmed!
+    <br><br>
+    The student stays in ${student.state}
 </head>
 <body>
 

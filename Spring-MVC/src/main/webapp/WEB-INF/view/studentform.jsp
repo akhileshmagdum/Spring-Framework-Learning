@@ -19,6 +19,12 @@
     <br><br>
     Age:<form:input path="age"/>
     <br><br>
+    <form:select path="state">
+    <form:options items="${student.stateList}"/>
+    </form:select>
+    <br><br>
+    <form:radiobuttons path="prgLang" items="${student.prgLangList}"/>
+    <br><br>
     <input type="submit" value="submit"/>
 </form:form>
 </body>

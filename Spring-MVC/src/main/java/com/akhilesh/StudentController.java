@@ -17,7 +17,6 @@ public class StudentController {
 
     @RequestMapping("/processform")
     public String processForm(@ModelAttribute("student") Student student){
-
         return "studentprocess";
     }
 }
