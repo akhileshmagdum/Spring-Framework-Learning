@@ -9,13 +9,12 @@
 <html>
 <head>
     <title>Student Processing Form</title>
+</head>
+<body>
     Student ${student.firstName} ${student.lastName} of age ${student.age} confirmed!
     <br><br>
     The student stays in ${student.state} and he has chosen the programming language ${student.prgLang}
     <br><br>
     Along with his hobbies of ${student.hobby}
-</head>
-<body>
-
 </body>
 </html>
