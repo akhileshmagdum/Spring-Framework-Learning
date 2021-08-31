@@ -23,4 +23,9 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+    <!--Load custom error message with .properties-->
+    <bean id="messageSource"
+          class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name = "basenames" value="messages"/>
+</bean>
 </beans>
