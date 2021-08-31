@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: Captain
@@ -7,10 +8,11 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
-    <title>$Title$</title>
-  </head>
-  <body>
-  $END$
-  </body>
+<head>
+    <title>Customer Processed Form</title>
+</head>
+<body>
+Customer ${customer.firstName} ${customer.lastName} is registered to the shop.
+and the card points are ${customer.cardPoints}
+</body>
 </html>
