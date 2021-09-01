@@ -24,6 +24,9 @@
         Card Points: <form:input path="cardPoints"/>
         <form:errors path="cardPoints" cssClass="error"/>
         <br><br>
+        Customer Id: <form:input path="customerIdentity"/>
+        <form:errors path="customerIdentity" cssClass="error"/>
+        <br><br>
         <input type="submit" value="submit"/>
     </form:form>
 

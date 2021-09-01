@@ -1,5 +1,7 @@
 package com.akhilesh;
 
+import com.akhilesh.validation.CustomerId;
+
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -11,6 +13,8 @@ public class Customer {
     @Size(min = 2,max=15,message = "Please enter valid name")
     private String firstName;
 
+    @NotNull(message = "Please Fill the name")
+    @Size(min = 2,max=15,message = "Please enter valid name")
     private String lastName;
 
     @NotNull(message = "Can't be empty")
@@ -18,7 +22,18 @@ public class Customer {
     @Max(value = 10,message = "can't be more than 10")
     private Integer cardPoints;
 
+    @CustomerId
+    private String customerIdentity;
+
     public Customer(){ }
+
+    public String getCustomerIdentity() {
+        return customerIdentity;
+    }
+
+    public void setCustomerIdentity(String customerIdentity) {
+        this.customerIdentity = customerIdentity;
+    }
 
     public Integer getCardPoints() {
         return cardPoints;

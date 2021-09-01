@@ -16,6 +16,6 @@
 <hr>
 <a href= "showform">Registration</a>
 <a href= "student/showform">Student Reg</a>
-<a href= "customer/showformC">Customer Form</a>
+<a href= "customer/showform">Customer Form</a>
 </body>
 </html>

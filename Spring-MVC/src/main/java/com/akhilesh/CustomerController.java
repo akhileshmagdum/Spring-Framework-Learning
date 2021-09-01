@@ -25,7 +25,7 @@ It helps to control and format requests that come to the controller as it is def
         dataBinder.registerCustomEditor(String.class,stringTrimmerEditor);
     }
 
-    @RequestMapping("/showformC")
+    @RequestMapping("/showform")
     public String showForm(Model model){
         model.addAttribute("customer", new Customer()); //Here we add the customer to the model(data)
         return "customerform";
@@ -34,6 +34,7 @@ It helps to control and format requests that come to the controller as it is def
     @RequestMapping("/processform")
     public String processForm(@Valid @ModelAttribute("customer") Customer customer, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
+            //System.out.println(bindingResult); used for debugging here we override their error message with ours
             return "customerform";
         }
         else {
