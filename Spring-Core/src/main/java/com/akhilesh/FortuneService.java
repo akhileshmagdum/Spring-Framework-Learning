@@ -1,2 +1,6 @@
-package com.akhilesh;public interface FortuneService {
+package com.akhilesh;
+
+public interface FortuneService {
+
+    public String myFortuneService();
 }

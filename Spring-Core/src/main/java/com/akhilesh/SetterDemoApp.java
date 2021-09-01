@@ -2,10 +2,12 @@ package com.akhilesh;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class SpringApp {
+public class SetterDemoApp {
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-        Coach theCoach = context.getBean("myCoach",Coach.class);
-        System.out.println(theCoach.getDailyFortune());
+
+        CricketCoach cricketCoach = context.getBean("myCricketCoach",CricketCoach.class);
+        System.out.println(cricketCoach.getDailyFortune()+" "+cricketCoach.getDailyWorkout());
+        context.close();
     }
 }

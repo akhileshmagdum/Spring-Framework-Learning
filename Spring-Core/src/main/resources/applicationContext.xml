@@ -6,7 +6,24 @@
     http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--Added by me-->
+
+    <!--Added Dependency-->
+    <bean id="myFortuneService"
+          class="com.akhilesh.HappyFortuneService"/>
 <bean id="myCoach"
       class="com.akhilesh.FootballCoach">
+
+    <!--Set constructor Injection-->
+    <constructor-arg ref="myFortuneService"/>
 </bean>
+
+    <bean id="myCricketCoach"
+          class="com.akhilesh.CricketCoach">
+
+        <!--Setting up setter injection-->
+        <property name="fortuneService" ref="myFortuneService"/>
+    </bean>
+
 </beans>
