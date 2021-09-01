@@ -8,15 +8,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Process Form</title>
+    <title>Basic Form Processed</title>
 </head>
 <body>
-Welcome to the Final Screen!
-<br><br>
-
+<h1>Welcome to the Final Screen!</h1>
+<hr>
 Name: ${param.studentName}
+<br><br>
 Age : ${param.age}
-
+<br><br>
 <a href= "enrollcourse">See Class</a>
 
 </body>

@@ -12,6 +12,8 @@
     <title>Student Form</title>
 </head>
 <body>
+<h1>Enter Student Details</h1>
+<hr>
 <form:form action="processform" modelAttribute="student">
     First Name:<form:input path="firstName"/>
     <br><br>
@@ -29,7 +31,6 @@
     Hobbies:
     <form:checkboxes path="hobby" items="${student.hobbiesList}"/>
     <br><br>
-
     <input type="submit" value="submit"/>
 </form:form>
 </body>

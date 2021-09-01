@@ -11,9 +11,10 @@
     <title>Student Processing Form</title>
 </head>
 <body>
+<h3>Student Processed</h3>
     Student ${student.firstName} ${student.lastName} of age ${student.age} confirmed!
     <br><br>
-    The student stays in ${student.state} and he has chosen the programming language ${student.prgLang}
+    The student stays in ${student.state} and he has assigned the programming language ${student.prgLang}
     <br><br>
     Along with his hobbies of ${student.hobby}
 </body>

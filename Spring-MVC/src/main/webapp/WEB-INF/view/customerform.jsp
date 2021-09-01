@@ -15,11 +15,15 @@
     </style>
 </head>
 <body>
+<h2>Customer Form</h2>
+<h3>Enter details correctly validation is applied</h3>
+<hr>
     <form:form action="processform" modelAttribute="customer">
         First Name:<form:input path="firstName"/>
         <form:errors path="firstName" cssClass="error"/>
         <br><br>
         Last Name:<form:input path="lastName"/>
+        <form:errors path="lastName" cssClass="error"/>
         <br><br>
         Card Points: <form:input path="cardPoints"/>
         <form:errors path="cardPoints" cssClass="error"/>

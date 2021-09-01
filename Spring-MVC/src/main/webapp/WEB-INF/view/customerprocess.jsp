@@ -12,6 +12,7 @@
     <title>Customer Processed Form</title>
 </head>
 <body>
+<h2>Customer Processed Form</h2>
 Customer ${customer.firstName} ${customer.lastName} is registered to the shop.
 and the card points are ${customer.cardPoints}
 With customer id ${customer.customerIdentity}
