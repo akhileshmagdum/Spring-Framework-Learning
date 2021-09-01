@@ -24,11 +24,8 @@
 
         <!--Setting up setter injection-->
         <property name="fortuneService" ref="myFortuneService"/>
-<<<<<<< HEAD
         <!--Injecting literal values-->
         <property name="teamName" value="Team India"/>
-=======
->>>>>>> 1a230a9c37a04d6579ca1e691d6048ce70ef2c4d
     </bean>
 
 </beans>
