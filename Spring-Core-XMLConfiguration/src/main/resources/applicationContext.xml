@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--Added by me-->
+
+    <!--Added Dependency-->
+    <bean id="myFortuneService"
+          class="com.akhilesh.HappyFortuneService"/>
+<bean id="myCoach"
+      class="com.akhilesh.FootballCoach">
+
+    <!--Set constructor Injection-->
+    <constructor-arg ref="myFortuneService"/>
+</bean>
+
+    <bean id="myCricketCoach"
+          class="com.akhilesh.CricketCoach">
+
+        <!--Setting up setter injection-->
+        <property name="fortuneService" ref="myFortuneService"/>
+        <!--Injecting literal values-->
+        <property name="teamName" value="${name.teamName}"/>
+    </bean>
+    <!-- properties file configuration-->
+    <context:property-placeholder location="xmlinjection.properties"/>
+
+</beans>
