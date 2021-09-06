@@ -14,7 +14,7 @@ public class CreateStudent {
         Session session = factory.getCurrentSession();
 
         try {
-            Student student = new Student("Akhilesh","Magdum","akhilesh@duck.com");
+            Student student = new Student("Michael","Scott","regionalmanager@dmi.com");
             session.beginTransaction();
             session.save(student);
             session.getTransaction().commit();
