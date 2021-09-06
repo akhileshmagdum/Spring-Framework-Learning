@@ -11,7 +11,7 @@
     <title>Basic Form Processed</title>
 </head>
 <body>
-<h1>Welcome to the Final Screen!</h1>
+<h1>Welcome!</h1>
 <hr>
 Name: ${param.studentName}
 <br><br>

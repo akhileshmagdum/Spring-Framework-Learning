@@ -13,7 +13,7 @@
 <body>
 <h1>Welcome to the Homepage</h1>
 <hr>
-<h2>Click the link below to enter to register</h2>
+<h2>Click the links below to see Demonstration</h2>
 <hr>
 <a href= "showform">basic</a>
 <br><br>
