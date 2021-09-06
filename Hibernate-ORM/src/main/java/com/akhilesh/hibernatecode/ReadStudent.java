@@ -24,7 +24,7 @@ public class ReadStudent {
             System.out.println(getStudentFromDB);
             session.getTransaction().commit();
         }finally {
-
+            factory.close();
         }
     }
 }
