@@ -22,6 +22,8 @@
             <version>5.1.44</version>
         </dependency>
 
+        <!--Adding dependencies for java.xml.bind as I am using java 11 and its support was dropped in java 9 onwards-->
+
 
     </dependencies>
 
