@@ -18,7 +18,8 @@ public class InstructorDetail {
     private String hobby;
 
     //here the mappedBy Property is taken from the Instructor class
-    @OneToOne(mappedBy = "instructorDetail",cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "instructorDetail",
+            cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
     private Instructor instructor;
 
     public Instructor getInstructor() {

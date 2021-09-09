@@ -21,9 +21,17 @@ public class GetInstructorDetail {
             InstructorDetail detail = session.get(InstructorDetail.class,id);
             System.out.println(detail);
             //Getting the associated instructor with that detail
+
+            //Deleting the bidirectional link between Instructor and Instructor Detail
+            detail.getInstructor().setInstructorDetail(null);
+
+            //Deleting detail
+            session.delete(detail);
+
             System.out.println(detail.getInstructor());
             session.getTransaction().commit();
         }finally {
+            session.close();
             factory.close();
         }
     }
