@@ -17,12 +17,12 @@ public class Create {
         Session session = factory.getCurrentSession();
 
         try {
-            Instructor instructor = new Instructor("Dan","Mace","dan@bru.com");
-            InstructorDetail detail = new InstructorDetail("Dan Mace","Surfing");
+            Instructor instructor = new Instructor("Sam","Kolder","sam@kold.com");
+            InstructorDetail detail = new InstructorDetail("Kold","Exercise");
             instructor.setInstructorDetail(detail);
 
             session.beginTransaction();
-            //This is also saves the details as cacade is set to all
+            //This is also saves the details as cascade is set to all
             session.save(instructor);
             session.getTransaction().commit();
         } finally {
