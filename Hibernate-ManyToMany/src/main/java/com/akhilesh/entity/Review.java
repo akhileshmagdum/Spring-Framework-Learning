@@ -39,7 +39,6 @@ public class Review {
     @Override
     public String toString() {
         return "Review{" +
-                "id=" + id +
                 ", comment='" + comment + '\'' +
                 '}';
     }
