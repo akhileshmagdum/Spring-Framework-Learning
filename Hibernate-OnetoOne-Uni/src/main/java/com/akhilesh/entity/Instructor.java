@@ -19,9 +19,10 @@ public class Instructor {
     @Column(name = "email")
     private String email;
 
+    //This refers to the one to one mapping to the instructor detail table with @JoinColumn Annotation
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "instructor_detail_id")
-    private InstructorDetail instructorDetail;
+    private InstructorDetail instructorDetail; // Object of Instructor Detail class is used
 
     public Instructor() { }
 

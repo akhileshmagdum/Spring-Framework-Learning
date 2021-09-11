@@ -18,7 +18,9 @@ public class InstructorDetail {
     private String hobby;
 
     //here the mappedBy Property is taken from the Instructor class
+    //This defines the bidirectional relationship
     @OneToOne(mappedBy = "instructorDetail",
+            //mappedBy tells hibernate to look at the property in the other class with @JoinColumn for association
             cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
     private Instructor instructor;
 
