@@ -18,11 +18,13 @@ public class App {
 
         try(factory; Session session = factory.getCurrentSession()){
             session.beginTransaction();
-            Student student = session.get(Student.class,1);
-            /*
-            toString() should be created with logic make sure we won't call each other's object's two string
-             */
-            System.out.println("\n====================\n"+student+"\n====================\n");
+
+//            Course course = session.get(Course.class,11);
+//            session.delete(course);
+
+            Student student = session.get(Student.class,2);
+            session.delete(student);
+
             session.getTransaction().commit();
         }
     }
