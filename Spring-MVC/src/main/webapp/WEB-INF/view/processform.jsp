@@ -12,11 +12,13 @@
 </head>
 <body>
 <h1>Welcome!</h1>
+<h2>Thank you for filling out the form</h2>
 <hr>
 Name: ${param.studentName}
 <br><br>
 Age : ${param.age}
 <br><br>
+Click on the link below to check randomly allocated class
 <a href= "enrollcourse">See Class</a>
 
 </body>

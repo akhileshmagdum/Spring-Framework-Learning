@@ -11,8 +11,6 @@
     <title>Class Allocation Page</title>
 </head>
 <body>
-<h3>To the Course Allocation</h3>
-<hr>
-Course : ${course}
+<h3>Allocated course is ${course}</h3>
 </body>
 </html>
