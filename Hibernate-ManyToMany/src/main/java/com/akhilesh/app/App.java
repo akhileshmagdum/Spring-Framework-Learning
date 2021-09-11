@@ -19,30 +19,14 @@ public class App {
         try(factory; Session session = factory.getCurrentSession()){
             session.beginTransaction();
 
-            Instructor dbInstructor = new Instructor("Akhilesh","Magdum","akhilesh@duck.com");
-            InstructorDetail dbDetail = new InstructorDetail("Akhilesh","Cycling");
-            dbInstructor.setInstructorDetail(dbDetail);
+            Instructor newInstructor = new Instructor("Michael","Scott","manager@dmi.com");
+            newInstructor.setInstructorDetail(new InstructorDetail("Electric Scranton","humor"));
+            session.save(newInstructor);
 
-            session.save(dbInstructor);
-
-            Course dbCourse = new Course("How to Crack a Interview",dbInstructor);
-            Course dbCourse1 = new Course("How to prepare for SSB",dbInstructor);
-            dbCourse.addReview(new Review("Nice Course I got placed in 4 companies"));
-            dbCourse.addReview(new Review("Has the instructor ever cracked a interview?"));
-            dbCourse.addReview(new Review("Need refund started working in my Dad's shop... lol"));
-            dbCourse1.addReview(new Review("Thanks got recommended"));
-
-            session.save(dbCourse);
-            session.save(dbCourse1);
-
-            Student dbStudent = new Student("Amol","Yamgar","yamgar@ry.com");
-            Student dbStudent1 = new Student("Purva","Magdum","purva@duck.com");
-            dbStudent.addCourse(dbCourse);
-            dbStudent.addCourse(dbCourse1);
-            dbStudent1.addCourse(dbCourse);
-
-            session.save(dbStudent);
-            session.save(dbStudent1);
+            Student student = session.get(Student.class,2);
+            Course newCourse = new Course("Dancing 101",newInstructor);
+            student.addCourse(newCourse);
+            session.save(newCourse);
 
             session.getTransaction().commit();
         }
