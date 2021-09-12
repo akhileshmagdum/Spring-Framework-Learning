@@ -12,5 +12,7 @@
 </head>
 <body>
 <h1>Welcome to the CRUD Application</h1>
+<hr>
+<a href= "TestDB">Check DB</a>
 </body>
 </html>
