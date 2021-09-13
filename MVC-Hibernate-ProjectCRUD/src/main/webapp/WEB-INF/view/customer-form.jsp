@@ -14,6 +14,8 @@
 <body>
 <h1>Customer Form</h1>
 <form:form action="saveCustomer" modelAttribute = "customer" method="post">
+    <!--Associating data with customer Id-->
+    <form:hidden path="id"/>
     <table>
         <tbody>
             <tr>
