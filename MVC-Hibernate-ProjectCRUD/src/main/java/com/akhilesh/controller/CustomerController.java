@@ -1,7 +1,7 @@
 package com.akhilesh.controller;
 
-import com.akhilesh.dao.CustomerDAO;
 import com.akhilesh.entity.Customer;
+import com.akhilesh.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,14 +14,14 @@ import java.util.List;
 @RequestMapping("/customer")
 public class CustomerController {
 
-    //Injecting customerDAO
+    //Injecting Customer Service
     @Autowired
-    private CustomerDAO customerDAO;
+    private CustomerService customerService;
 
     @GetMapping("/list")
     public String listCustomers(Model model){
 
-        List<Customer> customerList = customerDAO.getCustomers();
+        List<Customer> customerList = customerService.getCustomers();
 
         model.addAttribute("customers",customerList);
 
