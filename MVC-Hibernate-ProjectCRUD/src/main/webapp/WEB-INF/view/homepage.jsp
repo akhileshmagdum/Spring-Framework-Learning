@@ -14,5 +14,6 @@
 <h1>Welcome to the CRUD Application</h1>
 <hr>
 <a href= "TestDB">Check DB</a>
+<a href= "customer/list">Customers List</a>
 </body>
 </html>
