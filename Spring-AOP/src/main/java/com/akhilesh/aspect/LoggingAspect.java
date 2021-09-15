@@ -48,11 +48,6 @@ public class LoggingAspect {
         System.out.println(">>>>>>>>>Aspect advice from "+getClass());
     }
 
-    @Before("pointcutDeclarations()")
-    public void beforeDemo(){
-        System.out.println("<<<<<<<<Another aspect advice from "+getClass());
-    }
-
     @Pointcut("execution(public * com.akhilesh.pojo.Account.get*())")
     public void pointcutGetter(){ }
 
@@ -61,6 +56,6 @@ public class LoggingAspect {
 
     @Before("pointcutGetter() || pointcutSetter()")
     public void forEveryGetter(){
-        System.out.println("THIS IS AOP");
+        System.out.println("here pointcut expressions are combined");
     }
 }

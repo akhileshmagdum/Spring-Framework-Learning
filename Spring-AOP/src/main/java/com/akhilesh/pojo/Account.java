@@ -1,14 +1,13 @@
 package com.akhilesh.pojo;
 
-import org.springframework.stereotype.Component;
-
-@Component
 public class Account {
 
     public String name;
     public String email;
     public int age;
 
+    public Account(){ }
+    
     public String getName() {
         return name;
     }
