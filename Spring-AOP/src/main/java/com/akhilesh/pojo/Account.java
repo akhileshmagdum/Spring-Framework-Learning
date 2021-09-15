@@ -7,7 +7,13 @@ public class Account {
     public int age;
 
     public Account(){ }
-    
+
+    public Account(String name, String email, int age) {
+        this.name = name;
+        this.email = email;
+        this.age = age;
+    }
+
     public String getName() {
         return name;
     }

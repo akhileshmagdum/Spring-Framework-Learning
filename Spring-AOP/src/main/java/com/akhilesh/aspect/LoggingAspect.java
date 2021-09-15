@@ -2,15 +2,29 @@ package com.akhilesh.aspect;
 
 import com.akhilesh.pojo.Account;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Aspect
 @Component
 public class LoggingAspect {
+
+    @AfterReturning(pointcut = "execution(public * com.akhilesh.dao.AccountDAO.findAccounts(..))",returning = "result")
+    public void afterReturnDemo(JoinPoint joinPoint, List<Account> result){
+        System.out.println("\n"+joinPoint.getSignature().toShortString());
+        System.out.println("\n"+result+"\n");
+
+        for (Account i: result) {
+            String name = i.getName().toUpperCase();
+            i.setName(name);
+        }
+    }
 
     @Before("execution(public * com.akhilesh.dao.MembershipDAO.addMember(*,*))")
     public void declarationWithJoinPointsOnAddMember(JoinPoint joinPoint){
