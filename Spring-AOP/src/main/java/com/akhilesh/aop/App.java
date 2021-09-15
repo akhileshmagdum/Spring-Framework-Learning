@@ -9,12 +9,13 @@ public class App {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
 
-        Account account = new Account("akhilesh","magdum",22);
-        AccountDAO accountDAO = context.getBean("accountDAO", AccountDAO.class);
-        accountDAO.addAccount(account);
-        System.out.println("///////////////////////////////////");
-        MembershipDAO membershipDAO = context.getBean("membershipDAO",MembershipDAO.class);
-        System.out.println(membershipDAO.addMember());
+        Account account = context.getBean("account",Account.class);
+        account.setAge(22);
+        System.out.println(account.getAge());
+//        AccountDAO accountDAO = context.getBean("accountDAO", AccountDAO.class);
+//        System.out.println("///////////////////////////////////");
+//        MembershipDAO membershipDAO = context.getBean("membershipDAO",MembershipDAO.class);
+//        System.out.println(membershipDAO.addMember());
 
         context.close();
     }
