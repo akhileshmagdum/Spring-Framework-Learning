@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class LoggingAspect {
 
-    @Before("execution(public void addAccount())")
-    public void beforeAddAccountAdivce(){
-        System.out.println("\n working on "+getClass());
+    @Before("execution(public void com.akhilesh.dao.AccountDAO.addAccount(com.akhilesh.pojo.Account))")
+    public void beforeAddAccountAdvice(){
+        System.out.println(">>>>>>>>>Aspect advice from "+getClass());
     }
 }
