@@ -10,7 +10,7 @@ public class App {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
 
         AccountDAO dao = context.getBean("accountDAO",AccountDAO.class);
-        System.out.println(dao.findAccounts(true));
+        System.out.println(dao.findAccounts(false));
         context.close();
     }
 }

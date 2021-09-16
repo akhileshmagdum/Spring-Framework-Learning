@@ -12,6 +12,18 @@ import java.util.List;
 @Component
 public class LoggingAspect {
 
+    /*
+   The @After Advice is running AFTER the @AfterThrowing advice.
+   Starting with Spring 5.2.7:
+   - if advice methods defined in the same @Aspect class that need to run at the same join point
+   - the @After advice method is invoked AFTER any @AfterReturning or @AfterThrowing advice methods in the same aspect class
+     */
+
+    @After("execution(public * com.akhilesh.dao.AccountDAO.findAccounts(..))")
+    public void afterDemo(){
+        System.out.println("From @After "+getClass());
+    }
+
     @AfterThrowing(pointcut = "execution(public * com.akhilesh.dao.AccountDAO.findAccounts(..))",throwing = "exc")
     public void afterThrowingDemo(Throwable exc){
         System.out.println("From Aspect @afterthrowing "+getClass()+" \n"+ exc);
