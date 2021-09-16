@@ -124,10 +124,7 @@ In essence, the injection is nothing more than a fancy `set` method. And of cour
 
 
 ## Common Errors with Solution
----
 ### Error: localhost 8080 already in use
-
----
 
 Step 1: Run on command prompt administrator
 
