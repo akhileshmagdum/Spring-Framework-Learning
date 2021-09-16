@@ -16,4 +16,11 @@ public class Traffic {
 
         return "You will be late!";
     }
+
+    public String getDelay(boolean b) {
+        if(b){
+            throw new RuntimeException("This is manual error");
+        }
+        return getDelay();
+    }
 }

@@ -13,13 +13,20 @@ import java.util.List;
 @Component
 public class LoggingAspect {
 
-    @Around("execution(public * com.akhilesh.pojo.Traffic.getDelay())")
-    public Object aroundDemo(ProceedingJoinPoint proceedingJoinPoint) throws Throwable{
+    @Around("execution(public * com.akhilesh.pojo.Traffic.getDelay(..))")
+    public Object aroundDemo(ProceedingJoinPoint proceedingJoinPoint){
 
         System.out.println("AROUND on "+proceedingJoinPoint.getSignature().toShortString());
 
         long start = System.currentTimeMillis();
-        Object obj = proceedingJoinPoint.proceed();
+        Object obj = null;
+        try {
+            obj = proceedingJoinPoint.proceed();
+        } catch (Throwable e) {
+            System.out.println("We have "+e);
+
+            obj = "Handled exception";
+        }
 
         long end = System.currentTimeMillis();
 

@@ -10,7 +10,7 @@ public class App {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
         Traffic traffic = context.getBean("traffic",Traffic.class);
-        System.out.println(traffic.getDelay());
+        System.out.println(traffic.getDelay(true));
         context.close();
     }
 }
