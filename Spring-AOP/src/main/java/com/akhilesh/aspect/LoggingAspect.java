@@ -2,6 +2,7 @@ package com.akhilesh.aspect;
 
 import com.akhilesh.pojo.Account;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.stereotype.Component;
@@ -11,6 +12,22 @@ import java.util.List;
 @Aspect
 @Component
 public class LoggingAspect {
+
+    @Around("execution(public * com.akhilesh.pojo.Traffic.getDelay())")
+    public Object aroundDemo(ProceedingJoinPoint proceedingJoinPoint) throws Throwable{
+
+        System.out.println("AROUND on "+proceedingJoinPoint.getSignature().toShortString());
+
+        long start = System.currentTimeMillis();
+        Object obj = proceedingJoinPoint.proceed();
+
+        long end = System.currentTimeMillis();
+
+        long duration = end - start;
+        System.out.println(duration/1000);
+
+        return obj;
+    }
 
     /*
    The @After Advice is running AFTER the @AfterThrowing advice.
