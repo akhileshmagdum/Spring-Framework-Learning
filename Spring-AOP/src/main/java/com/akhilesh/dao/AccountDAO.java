@@ -13,7 +13,10 @@ public class AccountDAO {
         System.out.println("Account code from "+ getClass());
     }
 
-    public List<Account> findAccounts(){
+    public List<Account> findAccounts(boolean testing){
+        if(testing){
+            throw new RuntimeException("This is for testing purpose");
+        }
         System.out.println("From Find Class");
         List<Account> accounts = new ArrayList<>();
         accounts.add(new Account("Akhilesh","akhilesh@duck.com",11));

@@ -2,10 +2,7 @@ package com.akhilesh.aspect;
 
 import com.akhilesh.pojo.Account;
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.AfterReturning;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.annotation.*;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.stereotype.Component;
 
@@ -14,6 +11,11 @@ import java.util.List;
 @Aspect
 @Component
 public class LoggingAspect {
+
+    @AfterThrowing(pointcut = "execution(public * com.akhilesh.dao.AccountDAO.findAccounts(..))",throwing = "exc")
+    public void afterThrowingDemo(Throwable exc){
+        System.out.println("From Aspect @afterthrowing "+getClass()+" \n"+ exc);
+    }
 
     @AfterReturning(pointcut = "execution(public * com.akhilesh.dao.AccountDAO.findAccounts(..))",returning = "result")
     public void afterReturnDemo(JoinPoint joinPoint, List<Account> result){
