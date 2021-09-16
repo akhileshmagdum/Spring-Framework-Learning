@@ -14,7 +14,7 @@ import java.util.List;
 public class LoggingAspect {
 
     @Around("execution(public * com.akhilesh.pojo.Traffic.getDelay(..))")
-    public Object aroundDemo(ProceedingJoinPoint proceedingJoinPoint){
+    public Object aroundDemo(ProceedingJoinPoint proceedingJoinPoint) throws Throwable{
 
         System.out.println("AROUND on "+proceedingJoinPoint.getSignature().toShortString());
 
@@ -22,10 +22,10 @@ public class LoggingAspect {
         Object obj = null;
         try {
             obj = proceedingJoinPoint.proceed();
-        } catch (Throwable e) {
+        } catch (Exception e) {
             System.out.println("We have "+e);
 
-            obj = "Handled exception";
+            throw e;
         }
 
         long end = System.currentTimeMillis();
