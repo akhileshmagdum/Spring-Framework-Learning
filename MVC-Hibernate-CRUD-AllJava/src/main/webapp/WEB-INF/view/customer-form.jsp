@@ -41,7 +41,7 @@
 
 <!--Link is kind of hardcoded their is another approach were we add a welcome page and revert it to that page-->
 <p>
-    <a href= "/MVC_Hibernate_ProjectCRUD_war/customer/list">Back to List</a>
+    <a href= "/MVC_Hibernate_CRUD_AllJava_war/customer/list">Back to List</a>
 </p>
 </body>
 </html>

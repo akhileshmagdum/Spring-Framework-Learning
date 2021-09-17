@@ -13,7 +13,6 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
@@ -27,9 +26,9 @@ import java.util.logging.Logger;
  */
 @Configuration
 @EnableWebMvc //Supports Web MVC annotation driven
+@EnableTransactionManagement //Enabled Transaction for Database
 @ComponentScan(basePackages = "com.akhilesh")
 @PropertySource({"classpath:config.properties"})
-@EnableTransactionManagement
 public class AppConfig implements WebMvcConfigurer {
 
     //We inject the Environment in order to obtain the properties
