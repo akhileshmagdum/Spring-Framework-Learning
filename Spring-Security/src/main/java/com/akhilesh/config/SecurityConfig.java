@@ -33,6 +33,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll() //Specifies that all security roles are allowed
                 .and() //and() method is used to concatenate multiple configurer of Spring Security
                 .logout() //Logout Support
-                .permitAll();
+                .permitAll()
+                .and()
+                .exceptionHandling().accessDeniedPage("/access-denied");
     }
 }

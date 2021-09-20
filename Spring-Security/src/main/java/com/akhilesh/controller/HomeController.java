@@ -26,4 +26,9 @@ public class HomeController {
     public String showEmployees(){
         return "employees";
     }
+
+    @GetMapping("/access-denied")
+    public String showAccessDenied(){
+        return "access-denied";
+    }
 }

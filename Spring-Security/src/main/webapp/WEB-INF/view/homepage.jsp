@@ -31,9 +31,18 @@
 
 </p>
 
-<p>
-    <a href="${pageContext.request.contextPath}/leaders">Leadership</a>
-</p>
+    <security:authorize access="hasRole('MANAGER')">
+        <p>
+            <a href="${pageContext.request.contextPath}/leaders">Leadership</a>
+        </p>
+    </security:authorize>
+
+    <security:authorize access="hasRole('EMPLOYEE')">
+        <p>
+            <a href="${pageContext.request.contextPath}/employees">employees</a>
+        </p>
+    </security:authorize>
+
 
 <form:form action="${pageContext.request.contextPath}/logout" method="post">
 
