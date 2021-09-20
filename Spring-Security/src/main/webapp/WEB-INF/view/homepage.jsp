@@ -31,6 +31,9 @@
 
 </p>
 
+<p>
+    <a href="${pageContext.request.contextPath}/leaders">Leadership</a>
+</p>
 
 <form:form action="${pageContext.request.contextPath}/logout" method="post">
 

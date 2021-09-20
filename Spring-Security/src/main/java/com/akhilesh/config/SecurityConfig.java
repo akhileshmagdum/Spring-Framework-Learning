@@ -17,15 +17,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         UserBuilder users = User.withDefaultPasswordEncoder();
 
         auth.inMemoryAuthentication()
-                .withUser(users.username("Akhilesh").password("test123").roles("MANAGER"))
-                .withUser(users.username("Purva").password("test123").roles("USER"))
-                .withUser(users.username("Aai").password("test123").roles("EMPLOYEE"));
+                .withUser(users.username("Akhilesh").password("test123").roles("USER","EMPLOYEE","MANAGER"))
+                .withUser(users.username("User").password("test123").roles("USER"))
+                .withUser(users.username("Employee").password("test123").roles("USER","EMPLOYEE"));
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests() //Request access based on HttpServletRequest
-                .anyRequest().authenticated() //Any request to the app must be authenticated
+                .antMatchers("/").hasRole("USER")
+                .antMatchers("/leaders/**").hasRole("MANAGER")
+                .antMatchers("/employees/**").hasRole("EMPLOYEE")
                 .and().formLogin().loginPage("/showlogin")  //To get login page
                 .loginProcessingUrl("/authenticateUser") //Post mapping for authenticating users
                 .permitAll() //Specifies that all security roles are allowed
