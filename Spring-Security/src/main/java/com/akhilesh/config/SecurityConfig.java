@@ -28,6 +28,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 anyRequest().authenticated(). //Any request to the app must be authenticated
                 and().formLogin().loginPage("/showlogin").  //To get login page
                 loginProcessingUrl("/authenticateUser"). //Post mapping for authenticating users
-                permitAll();
+                permitAll() //Specifies that all security roles are allowed
+                .and() //and() method is used to concatenate multiple configurer of Spring Security
+                .logout() //Logout Support
+                .permitAll();
     }
 }
