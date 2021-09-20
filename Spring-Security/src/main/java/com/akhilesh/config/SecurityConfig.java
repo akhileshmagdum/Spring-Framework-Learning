@@ -24,11 +24,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests(). //Request access based on HttpServletRequest
-                anyRequest().authenticated(). //Any request to the app must be authenticated
-                and().formLogin().loginPage("/showlogin").  //To get login page
-                loginProcessingUrl("/authenticateUser"). //Post mapping for authenticating users
-                permitAll() //Specifies that all security roles are allowed
+        http.authorizeRequests() //Request access based on HttpServletRequest
+                .anyRequest().authenticated() //Any request to the app must be authenticated
+                .and().formLogin().loginPage("/showlogin")  //To get login page
+                .loginProcessingUrl("/authenticateUser") //Post mapping for authenticating users
+                .permitAll() //Specifies that all security roles are allowed
                 .and() //and() method is used to concatenate multiple configurer of Spring Security
                 .logout() //Logout Support
                 .permitAll();
