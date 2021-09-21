@@ -24,7 +24,7 @@
 <form:form action="${pageContext.request.contextPath}/authenticateUser" method="post">
 
     <c:if test="${param.error != null}">
-        <i>Please enter registered id or {Username: Akhilesh / Password: test123}</i>
+        <i>Please enter registered id or {Username: Sanket / Password: fun123}</i>
     </c:if>
 
     <c:if test="${param.logout != null}">
