@@ -1,0 +1,15 @@
+{
+  "id": 1,
+  "firstName": "Akhilesh",
+  "lastName": "Magdum",
+  "result": true,
+  "backlog": null,
+  "address": {
+    "home": "422/16",
+    "street": "100ft",
+    "city": "Sangli",
+    "pincode": 416416
+  },
+  "courses": ["java","spring","sql","git"],
+  "age": 23
+}
