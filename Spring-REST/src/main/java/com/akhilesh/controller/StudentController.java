@@ -1,6 +1,8 @@
 package com.akhilesh.controller;
 
 import com.akhilesh.pojo.Student;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,5 +27,10 @@ public class StudentController {
     @RequestMapping("/students-list")
     public List<Student> showStudentsList(){
         return students;
+    }
+
+    @GetMapping("student/{studentId}")
+    public Student showStudentById(@PathVariable int studentId){
+        return students.get(studentIds);
     }
 }
