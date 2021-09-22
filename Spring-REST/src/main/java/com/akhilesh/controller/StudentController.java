@@ -1,10 +1,11 @@
 package com.akhilesh.controller;
 
+import com.akhilesh.errorhandling.StudentError;
+import com.akhilesh.errorhandling.StudentNotFoundException;
 import com.akhilesh.pojo.Student;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
@@ -31,6 +32,19 @@ public class StudentController {
 
     @GetMapping("student/{studentId}")
     public Student showStudentById(@PathVariable int studentId){
-        return students.get(studentIds);
+        if((studentId>=students.size()) || studentId<0) {
+            throw new StudentNotFoundException("Student with id "+studentId+" does not exist");
+        }
+        return students.get(studentId);
+    }
+
+    @ExceptionHandler
+    public ResponseEntity<StudentError> handleException(StudentNotFoundException exception){
+        StudentError error = new StudentError();
+        error.setStatus(HttpStatus.NOT_FOUND.value());
+        error.setMessage(exception.getMessage());
+        error.setTimestamp(System.currentTimeMillis());
+
+        return new ResponseEntity<>(error,HttpStatus.NOT_FOUND);
     }
 }
