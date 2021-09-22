@@ -1,10 +1,7 @@
 package com.akhilesh.controller;
 
-import com.akhilesh.errorhandling.StudentError;
 import com.akhilesh.errorhandling.StudentNotFoundException;
 import com.akhilesh.pojo.Student;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
@@ -38,24 +35,4 @@ public class StudentController {
         return students.get(studentId);
     }
 
-    @ExceptionHandler
-    public ResponseEntity<StudentError> handleException(StudentNotFoundException exception){
-        StudentError error = new StudentError();
-        error.setStatus(HttpStatus.NOT_FOUND.value());
-        error.setMessage(exception.getMessage());
-        error.setTimestamp(System.currentTimeMillis());
-
-        return new ResponseEntity<>(error,HttpStatus.NOT_FOUND);
-    }
-
-    //Generic exception handler
-    @ExceptionHandler
-    public ResponseEntity<StudentError> handleException(Exception exception){
-        StudentError error = new StudentError();
-        error.setStatus(HttpStatus.BAD_REQUEST.value());
-        error.setMessage("Enter valid request");
-        error.setTimestamp(System.currentTimeMillis());
-
-        return new ResponseEntity<>(error,HttpStatus.BAD_REQUEST);
-    }
 }
