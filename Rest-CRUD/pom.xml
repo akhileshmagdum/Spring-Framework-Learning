@@ -93,5 +93,22 @@
 
     </dependencies>
 
+    <build>
+
+        <finalName>REST-CRUD</finalName>
+
+        <plugins>
+
+            <!-- Builds a Web Application Archive (WAR) file from the project output
+                and its dependencies. -->
+            <plugin>
+                <!-- Add Maven coordinates (GAV) for: maven-war-plugin -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.2.0</version>
+            </plugin>
+
+        </plugins>
+    </build>
 
 </project>
