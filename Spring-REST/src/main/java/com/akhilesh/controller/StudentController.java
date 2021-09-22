@@ -47,4 +47,15 @@ public class StudentController {
 
         return new ResponseEntity<>(error,HttpStatus.NOT_FOUND);
     }
+
+    //Generic exception handler
+    @ExceptionHandler
+    public ResponseEntity<StudentError> handleException(Exception exception){
+        StudentError error = new StudentError();
+        error.setStatus(HttpStatus.BAD_REQUEST.value());
+        error.setMessage("Enter valid request");
+        error.setTimestamp(System.currentTimeMillis());
+
+        return new ResponseEntity<>(error,HttpStatus.BAD_REQUEST);
+    }
 }
