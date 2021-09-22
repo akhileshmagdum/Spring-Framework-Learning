@@ -14,5 +14,11 @@ public class MainApp {
 
         System.out.println(student.getId()+"\n"+student.getFirstName()+" "+student.getLastName()
                 +"\n"+student.getBacklog()+" "+student.isResult());
+
+        System.out.println(student.getAddress());
+
+        for (String course : student.getCourses()) {
+            System.out.println(course);
+        }
     }
 }

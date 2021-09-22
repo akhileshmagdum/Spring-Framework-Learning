@@ -7,6 +7,8 @@ public class Student {
     private String lastName;
     private boolean result;
     private int backlog;
+    private Address address;
+    private String[] courses;
 
     public Student() { }
 
@@ -48,5 +50,21 @@ public class Student {
 
     public void setBacklog(int backlog) {
         this.backlog = backlog;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public String[] getCourses() {
+        return courses;
+    }
+
+    public void setCourses(String[] courses) {
+        this.courses = courses;
     }
 }
