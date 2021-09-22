@@ -10,5 +10,6 @@
     "city": "Sangli",
     "pincode": 416416
   },
-  "courses": ["java","spring","sql","git"]
+  "courses": ["java","spring","sql","git"],
+  "age": 23
 }
