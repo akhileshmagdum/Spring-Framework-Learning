@@ -13,5 +13,6 @@
 <body>
 <h3>Spring REST Hello World Demo</h3>
 <a href="test/hello">rest test</a>
+<a href="api/students-list">students list</a>
 </body>
 </html>
