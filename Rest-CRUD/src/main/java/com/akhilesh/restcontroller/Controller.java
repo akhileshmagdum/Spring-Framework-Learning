@@ -1,6 +1,7 @@
 package com.akhilesh.restcontroller;
 
 import com.akhilesh.entity.Customer;
+import com.akhilesh.errorhandling.CustomerException;
 import com.akhilesh.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +20,11 @@ public class Controller {
 
     @GetMapping("/customer/{customerId}")
     public Customer showSingleCustomer(@PathVariable int customerId){
-        return customerService.getSingleCustomer(customerId);
+        Customer customer = customerService.getSingleCustomer(customerId);
+        if(customer == null){
+            throw new CustomerException("Customer not found");
+        }
+        return customer;
     }
 
     @GetMapping("/customers")
