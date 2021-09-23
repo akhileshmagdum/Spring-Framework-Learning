@@ -11,9 +11,7 @@ public class CustomerExceptionHandler {
 
     @ExceptionHandler
     public ResponseEntity<CustomerError> handleException(Exception exception){
-        CustomerError error = new CustomerError();
-        error.setStatus(HttpStatus.BAD_REQUEST.value());
-        error.setMessage("Enter a valid number");
+        CustomerError error = new CustomerError(HttpStatus.BAD_REQUEST.value(),"Enter a valid number");
 
         return new ResponseEntity<>(error,HttpStatus.BAD_REQUEST);
     }
