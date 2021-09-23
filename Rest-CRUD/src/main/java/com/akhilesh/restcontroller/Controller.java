@@ -17,7 +17,7 @@ public class Controller {
     @Autowired
     private CustomerService customerService;
 
-    @RequestMapping("/customer/{customerId}")
+    @GetMapping("/customer/{customerId}")
     public Customer showSingleCustomer(@PathVariable int customerId){
         return customerService.getSingleCustomer(customerId);
     }
