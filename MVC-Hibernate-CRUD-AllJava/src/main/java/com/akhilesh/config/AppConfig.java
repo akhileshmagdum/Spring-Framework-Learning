@@ -28,7 +28,8 @@ import java.util.logging.Logger;
 @EnableWebMvc //Supports Web MVC annotation driven
 @EnableTransactionManagement //Enabled Transaction for Database
 @ComponentScan(basePackages = "com.akhilesh")
-@PropertySource({"classpath:config.properties"})
+@PropertySource({"classpath:config.properties",
+        "classpath:securityconfig.properties"})
 public class AppConfig implements WebMvcConfigurer {
 
     //We inject the Environment in order to obtain the properties
@@ -95,6 +96,38 @@ public class AppConfig implements WebMvcConfigurer {
         myDataSource.setMaxIdleTime(getIntProperty("connection.pool.maxIdleTime"));
 
         return myDataSource;
+    }
+
+    @Bean
+    public DataSource securityDataSource() {
+
+        // create connection pool
+        ComboPooledDataSource securityDataSource = new ComboPooledDataSource();
+
+        // set the jdbc driver
+        try {
+            securityDataSource.setDriverClass(env.getProperty("security.jdbc.driver"));
+        }
+        catch (PropertyVetoException exc) {
+            throw new RuntimeException(exc);
+        }
+
+        // Just to make sure we are reading the data
+        logger.info("security.jdbc.url=" + env.getProperty("security.jdbc.url"));
+        logger.info("security.jdbc.user=" + env.getProperty("security.jdbc.user"));
+
+        // set database connection props
+        securityDataSource.setJdbcUrl(env.getProperty("security.jdbc.url"));
+        securityDataSource.setUser(env.getProperty("security.jdbc.user"));
+        securityDataSource.setPassword(env.getProperty("security.jdbc.password"));
+
+        // set connection pool props
+        securityDataSource.setInitialPoolSize(getIntProperty("security.connection.pool.initialPoolSize"));
+        securityDataSource.setMinPoolSize(getIntProperty("security.connection.pool.minPoolSize"));
+        securityDataSource.setMaxPoolSize(getIntProperty("security.connection.pool.maxPoolSize"));
+        securityDataSource.setMaxIdleTime(getIntProperty("security.connection.pool.maxIdleTime"));
+
+        return securityDataSource;
     }
 
     /*
