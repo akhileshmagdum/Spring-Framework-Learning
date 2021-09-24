@@ -27,7 +27,7 @@ public class CustomerController {
         return "list-customers";
     }
 
-    @GetMapping("/showFormForAdd")
+    @GetMapping("/show-form-add")
     public String addCustomers(Model model){
 
         Customer customer = new Customer();
@@ -36,13 +36,13 @@ public class CustomerController {
         return "customer-form";
     }
 
-    @PostMapping("/saveCustomer")
+    @PostMapping("/save-customer")
     public String saveCustomer(@ModelAttribute("customer") Customer customer){
         customerService.saveCustomer(customer);
         return "redirect:/customer/list";
     }
 
-    @GetMapping("/showFormForUpdate")
+    @GetMapping("/show-form-update")
     public String showFormForUpdate(@RequestParam("customerId") int id, Model model){
         Customer customer = customerService.getCustomer(id);
         model.addAttribute("customer",customer);

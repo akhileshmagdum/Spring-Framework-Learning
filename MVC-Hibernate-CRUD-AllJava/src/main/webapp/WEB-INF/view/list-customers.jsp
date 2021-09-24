@@ -23,7 +23,7 @@
 
         <!--Add Customer Button-->
         <input type="button" value="Add Customer"
-        onclick="window.location.href='showFormForAdd'; return false;"/>
+        onclick="window.location.href='show-form-add'; return false;"/>
 
         <!--  add a search box -->
         <form:form action="search" method="GET">
@@ -43,7 +43,7 @@
             <c:forEach var ="tempCustomer" items="${customers}">
 
                 <!--Update link for customers-->
-                <c:url var="updatelink" value="/customer/showFormForUpdate">
+                <c:url var="updatelink" value="/customer/show-form-update">
                     <c:param name="customerId" value="${tempCustomer.id}"/>
                 </c:url>
 
