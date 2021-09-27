@@ -10,4 +10,10 @@ public class HomeController {
     public String helloSpringboot(){
         return "Hello Springboot";
     }
+
+
+    @GetMapping("/hello")
+    public  String testingDevToolsAutoReload(){
+        return "this page is automatically updated";
+    }
 }
