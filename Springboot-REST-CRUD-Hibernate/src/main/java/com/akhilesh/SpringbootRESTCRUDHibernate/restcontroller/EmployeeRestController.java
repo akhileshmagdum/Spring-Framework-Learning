@@ -13,6 +13,12 @@ import java.util.List;
 @RequestMapping("/api")
 public class EmployeeRestController {
 
+    /*
+    Why use constructor injection, when field and setter injection are present?
+    https://dzone.com/articles/spring-di-patterns-the-good-the-bad-and-the-ugly
+     */
+
+
     private IEmployeeService service;
 
     @Autowired
