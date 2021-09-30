@@ -1,45 +1,56 @@
 package com.akhilesh.SpringbootRESTCRUDHibernate.service;
 
-import com.akhilesh.SpringbootRESTCRUDHibernate.dao.IEmployeeDAO;
+import com.akhilesh.SpringbootRESTCRUDHibernate.dao.EmployeeRepository;
 import com.akhilesh.SpringbootRESTCRUDHibernate.entity.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EmployeeServiceImpl implements IEmployeeService{
 
-    private IEmployeeDAO dao;
+    private EmployeeRepository dao;
 
     @Autowired
-    public EmployeeServiceImpl(@Qualifier("employeeDAOJpaImpl") IEmployeeDAO dao) {
+    public EmployeeServiceImpl(EmployeeRepository dao) {
         this.dao = dao;
     }
 
     @Override
-    @Transactional
     public List<Employee> getAllEmployee() {
-        return dao.getAllEmployee();
+        return dao.findAll();
     }
 
     @Override
-    @Transactional
     public Employee getSingleEmployee(int id) {
-        return dao.getSingleEmployee(id);
+
+        /*
+        Optional is a container object used to contain not-null objects.
+        Optional object is used to represent null with absent value.
+        This class has various utility methods to facilitate code to handle values as ‘available’ or ‘not available’
+        instead of checking null values.
+         */
+
+        Optional<Employee> result = dao.findById(id);
+        Employee employee = null;
+
+        if(result.isPresent()){
+            employee = result.get();
+        }
+
+        return employee;
     }
 
     @Override
-    @Transactional
     public Employee saveEmployee(Employee employee) {
-        return dao.saveEmployee(employee);
+        return dao.save(employee);
     }
 
     @Override
-    @Transactional
     public void deleteEmployee(int id) {
-        dao.deleteEmployee(id);
+        dao.deleteById(id);
     }
 }
