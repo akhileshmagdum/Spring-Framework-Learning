@@ -29,4 +29,16 @@ public class EmployeeServiceImpl implements IEmployeeService{
     public Employee getSingleEmployee(int id) {
         return dao.getSingleEmployee(id);
     }
+
+    @Override
+    @Transactional
+    public Employee saveEmployee(Employee employee) {
+        return dao.saveEmployee(employee);
+    }
+
+    @Override
+    @Transactional
+    public void deleteEmployee(int id) {
+        dao.deleteEmployee(id);
+    }
 }

@@ -4,9 +4,7 @@ package com.akhilesh.SpringbootRESTCRUDHibernate.restcontroller;
 import com.akhilesh.SpringbootRESTCRUDHibernate.entity.Employee;
 import com.akhilesh.SpringbootRESTCRUDHibernate.service.IEmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -34,6 +32,28 @@ public class EmployeeRestController {
 
     @RequestMapping("/employee/{id}")
     public Employee showSingleEmployee(@PathVariable int id){
-        return  service.getSingleEmployee(id);
+        Employee employee = service.getSingleEmployee(id);
+        if (employee==null){
+            throw new RuntimeException("No employee found with "+id);
+        }
+        return employee;
+    }
+
+    @PostMapping("/employee")
+    public Employee saveEmployee(@RequestBody Employee employee){
+        employee.setId(0);
+        service.saveEmployee(employee);
+        return employee;
+    }
+
+    @DeleteMapping("/employee/{id}")
+    public void deleteEmployee(@PathVariable int id){
+        service.deleteEmployee(id);
+    }
+
+    @PutMapping("/employee")
+    public Employee updateEmployee(@RequestBody Employee employee){
+        service.saveEmployee(employee);
+        return employee;
     }
 }
