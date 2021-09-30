@@ -28,4 +28,13 @@ public class EmployeeDAOImpl implements IEmployeeDAO{
 
         return employeeList;
     }
+
+    @Override
+    public Employee getSingleEmployee(int id) {
+
+        Session session = entityManager.unwrap(Session.class);
+        Employee employee = session.get(Employee.class,id);
+
+        return employee;
+    }
 }

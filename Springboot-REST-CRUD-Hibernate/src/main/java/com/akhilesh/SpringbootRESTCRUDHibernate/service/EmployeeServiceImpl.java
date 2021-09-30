@@ -23,4 +23,10 @@ public class EmployeeServiceImpl implements IEmployeeService{
     public List<Employee> getAllEmployee() {
         return dao.getAllEmployee();
     }
+
+    @Override
+    @Transactional
+    public Employee getSingleEmployee(int id) {
+        return dao.getSingleEmployee(id);
+    }
 }
