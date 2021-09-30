@@ -13,8 +13,12 @@ import java.util.List;
 @RequestMapping("/api")
 public class EmployeeRestController {
 
-    @Autowired
     private IEmployeeService service;
+
+    @Autowired
+    public EmployeeRestController(IEmployeeService service) {
+        this.service = service;
+    }
 
     @RequestMapping("/employee-all")
     public List<Employee> showAllEmployee(){
