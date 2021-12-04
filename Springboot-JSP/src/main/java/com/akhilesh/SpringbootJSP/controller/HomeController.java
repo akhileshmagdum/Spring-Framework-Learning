@@ -10,4 +10,9 @@ public class HomeController {
     public String showHomepage() {
         return "homepage";
     }
+
+    @RequestMapping("/jstl-demo")
+    public String practiceJstl() {
+        return "jstl-demo";
+    }
 }
