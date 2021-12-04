@@ -1,18 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <body>
-<c:set var="income" scope="session" value="${4000*4}"/>
-<p>Your income is : <c:out value="${income}"/></p>
-<c:choose>
-    <c:when test="${income <= 1000}">
-        Income is not good.
-    </c:when>
-    <c:when test="${income > 10000}">
-        Income is very good.
-    </c:when>
-    <c:otherwise>
-        Income is undetermined...
-    </c:otherwise>
-</c:choose>
+<c:forEach var="j" begin="1" end="3">
+Item <c:out value="${j}"/><p>
+    </c:forEach>
 </body>
 </html>
