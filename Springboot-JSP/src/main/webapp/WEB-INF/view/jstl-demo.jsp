@@ -1,9 +1,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
     <body>
-        <c:set var="income" scope="session" value="${10*8}"/>
-        <p>Before Remove Operation</p><c:out value="${income}"/>
-        <c:remove var="income"/>
-        <p>After remove:</p><c:out value="${income}"/>
+        <c:catch var="expToCatch"/>
+        <% int x = 10/0; %>
+        <c:catch/>
+
+    <c:if test="${expToCatch != null}">
+        <p>the exception is ${expToCatch}<br/>
+        and message ${expToCatch.message}</p>
+    </c:if>
     </body>
 </html>
